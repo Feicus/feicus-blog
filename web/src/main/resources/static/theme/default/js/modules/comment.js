@@ -1,12 +1,3 @@
-/*
-+--------------------------------------------------------------------------
-|   Mblog [#RELEASE_VERSION#]
-|   ========================================
-|   Copyright (c) 2014, 2015 mtons. All Rights Reserved
-|   http://www.mtons.com
-|
-+---------------------------------------------------------------------------
-*/
 
 define(function(require, exports, module) {
 	J = jQuery;
@@ -144,10 +135,10 @@ define(function(require, exports, module) {
         		layer.msg('请输入内容再提交!', {icon: 2});
         		return false;
         	}
-        	if (text.length > 255) {
+        	/*if (text.length > 255) {
         		layer.msg('内容过长，请输入140以内个字符', {icon: 2});
         		return false;
-        	}
+        	}*/
         	
         	jQuery.ajax({
         		url: opts.post_url, 
