@@ -34,6 +34,7 @@
                         <div class="block-contents">
                             <p class="tit">${row.title?html}
                             </p>
+                            <p>${row.created?string('yyyy-MM-dd HH:mm:ss')}</p>
                         </div>
                     </div>
                 </div>

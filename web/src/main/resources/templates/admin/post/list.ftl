@@ -27,7 +27,7 @@
                             <th width="80">#</th>
                             <th>文章标题</th>
                             <th width="120">作者</th>
-                            <th width="100">发表日期</th>
+                            <th width="200">发表日期</th>
                             <th width="60">访问数</th>
                             <th width="120">文章状态</th>
                             <th width="80">状态</th>
@@ -47,7 +47,7 @@
                                     <a href="${base}/view/${row.id}" target="_blank">${row.title}</a>
                                 </td>
                                 <td>${row.author.username}</td>
-                                <td>${row.created?string('yyyy-MM-dd')}</td>
+                                <td>${row.created?string('yyyy-MM-dd HH:mm:ss')}</td>
                                 <td>${row.views}</td>
                                 <td>
                                     <#if (row.isDelete > 0)>

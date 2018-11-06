@@ -28,7 +28,7 @@ public class CommentVO extends Comment implements Serializable {
 	private CommentVO parent;
 	private PostVO post;
 
-	@JSONField(format="yyyy-MM-dd")
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	public Date getCreated() {
 		return super.getCreated();
 	}

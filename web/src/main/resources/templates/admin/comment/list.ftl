@@ -41,7 +41,7 @@
                                 <td>${row.content}</td>
                                 <td>${row.toId}</td>
                                 <td>${row.author.username}</td>
-                                <td>${row.created?string('yyyy-MM-dd')}</td>
+                                <td>${row.created?string('yyyy-MM-dd HH:mm:ss')}</td>
                                 <td class="text-center" align="left">
                                     <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-id="${row.id}"
                                        data-action="delete">
