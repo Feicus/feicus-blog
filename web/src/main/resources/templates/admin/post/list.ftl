@@ -171,7 +171,7 @@ $(function() {
     //恢复
     $('#dataGrid a[rel="recovery"]').bind('click', function(){
         var that = $(this);
-        layer.confirm('确定删除此项吗?', {
+        layer.confirm('确定恢复此项吗?', {
             btn: ['确定','取消'], //按钮
             shade: false //不显示遮罩
         }, function(){
