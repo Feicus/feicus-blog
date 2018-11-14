@@ -31,9 +31,6 @@
         </div>
         <!-- /view show -->
     </div>
-    <div class="col-xs-12 col-md-3 side-right hidden-xs hidden-sm">
-		<#include "/card/inc/right.ftl"/>
-    </div>
 </div>
 
 </@layout>
