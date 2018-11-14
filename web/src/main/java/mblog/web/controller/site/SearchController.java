@@ -11,6 +11,7 @@ package mblog.web.controller.site;
 
 import mblog.modules.blog.data.PostVO;
 import mblog.modules.blog.service.PostService;
+import mblog.modules.user.data.AccountProfile;
 import mblog.web.controller.BaseController;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,10 @@ public class SearchController extends BaseController {
 
 	@RequestMapping("/search")
 	public String search(String kw, ModelMap model) {
+		AccountProfile profile = getSubject().getProfile();
+		if(profile==null || profile.getUsername()==null || profile.getId()<1L){
+			return view(Views.LOGIN);
+		}
 		Pageable pageable = wrapPageable();
 		try {
 			if (StringUtils.isNotEmpty(kw)) {

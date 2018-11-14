@@ -14,6 +14,7 @@ import mblog.modules.blog.data.PostVO;
 import mblog.modules.blog.entity.Channel;
 import mblog.modules.blog.service.ChannelService;
 import mblog.modules.blog.service.PostService;
+import mblog.modules.user.data.AccountProfile;
 import mblog.web.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,10 @@ public class ChannelController extends BaseController {
 	@RequestMapping("/channel/{id}")
 	public String channel(@PathVariable Integer id, ModelMap model,
 			HttpServletRequest request) {
+		AccountProfile profile = getSubject().getProfile();
+		if(profile==null || profile.getUsername()==null || profile.getId()<1L){
+			return view(Views.LOGIN);
+		}
 		// init params
 		String order = ServletRequestUtils.getStringParameter(request, "order", Consts.order.NEWEST);
 		int pn = ServletRequestUtils.getIntParameter(request, "pn", 1);
@@ -54,6 +59,10 @@ public class ChannelController extends BaseController {
 
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, ModelMap model) {
+        AccountProfile profile = getSubject().getProfile();
+        if(profile==null || profile.getUsername()==null || profile.getId()<1L){
+            return view(Views.LOGIN);
+        }
 		PostVO view = postService.get(id,Consts.DELETE_DEFAULT);
 
 		Assert.notNull(view, "该内容已被删除");
