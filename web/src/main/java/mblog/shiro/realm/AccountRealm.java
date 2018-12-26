@@ -3,6 +3,7 @@ package mblog.shiro.realm;
 import java.util.List;
 
 import mblog.base.lang.Consts;
+import mblog.modules.authc.entity.Permission;
 import mblog.modules.authc.entity.Role;
 import mblog.modules.authc.service.UserRoleService;
 import org.apache.commons.lang3.StringUtils;
@@ -46,9 +47,11 @@ public class AccountRealm extends AuthorizingRealm {
                 //赋予角色
                 roles.forEach(role -> {
                     info.addRole(role.getName());
-
-                    //赋予权限
-                    role.getPermissions().forEach(permission -> info.addStringPermission(permission.getName()));
+                    List<Permission> permissions = role.getPermissions();
+                    if(permissions!=null && permissions.size()>0){
+                        //赋予权限
+                        permissions.forEach(permission -> info.addStringPermission(permission.getName()));
+                    }
                 });
                 return info;
             }
