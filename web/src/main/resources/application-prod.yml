@@ -1,5 +1,7 @@
 server:
     port: 80
+    tomcat:
+      basedir: /opt/project/temp
 spring:
     devtools:
         enabled: true
